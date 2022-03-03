@@ -22,7 +22,7 @@ steps:
     goals: 'package'
 - task: SonarQubePrepare@5
   inputs:
-    SonarQube: 'AzureDevops Sonar'
+    SonarQube: 'AZDevopsSonar Connection'
     scannerMode: 'MSBuild'
     projectKey: 'Project-Key-Sonar'
     projectName: 'Project-Name-Sonar'
