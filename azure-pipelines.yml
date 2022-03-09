@@ -39,7 +39,7 @@ steps:
     effectivePomSkip: false
     sonarQubeRunAnalysis: true
     sqMavenPluginVersionChoice: 'latest'
-    goals: 'claen package'
+    goals: 'clean package'
 
 - task: CmdLine@2
   inputs:
