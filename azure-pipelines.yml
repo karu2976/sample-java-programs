@@ -10,6 +10,10 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+- task: MavenAuthenticate@0
+  inputs:
+    artifactsFeeds: 'ATG_Artifacts'
+    mavenServiceConnections: 'PipeLineArtifactory'
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
@@ -19,7 +23,7 @@ steps:
     jdkArchitectureOption: 'x64'
     #publishJUnitResults: true
     #testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'clean install package'
+    goals: 'clean build install package'
 - task: SonarQubePrepare@5
   inputs:
     SonarQube: 'AZDevopsSonar Connection'
@@ -44,11 +48,11 @@ steps:
 - task: CmdLine@2
   inputs:
     script: 'ls -lart /home/vsts/work/1/s/**/target/*.jar'
-- task: CopyFiles@2
-  inputs:
-    SourceFolder: '/home/vsts/work/1/s/'
-    Contents: '**/target/*.jar'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+#- task: CopyFiles@2
+#  inputs:
+#    SourceFolder: '/home/vsts/work/1/s/'
+#    Contents: '**/target/*.jar'
+#    TargetFolder: '$(Build.ArtifactStagingDirectory)'
 #- task: PublishBuildArtifacts@1
 #  inputs:
 #    pathToPublish: $(Build.ArtifactStagingDirectory)
