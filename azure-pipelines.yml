@@ -19,7 +19,7 @@ steps:
     jdkArchitectureOption: 'x64'
     #publishJUnitResults: true
     #testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'clean install package build'
+    goals: 'clean install package'
 - task: SonarQubePrepare@5
   inputs:
     SonarQube: 'AZDevopsSonar Connection'
