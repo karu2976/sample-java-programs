@@ -74,6 +74,31 @@
         </dependencies>
     </dependencyManagement>
 
+    <repositories>
+        <repository>
+          <id>ATG_Artifacts</id>
+          <url>https://pkgs.dev.azure.com/ras-development/ATG-Sandbox/_packaging/ATG_Artifacts/maven/v1</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+    </repositories>   
+    <distributionManagement>
+        <repository>
+          <id>ATG_Artifacts</id>
+          <url>https://pkgs.dev.azure.com/ras-development/ATG-Sandbox/_packaging/ATG_Artifacts/maven/v1</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+    </distributionManagement>   
+
     <build>
         <pluginManagement>
             <plugins>
