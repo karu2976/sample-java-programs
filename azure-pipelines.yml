@@ -43,7 +43,7 @@ steps:
     effectivePomSkip: false
     sonarQubeRunAnalysis: true
     sqMavenPluginVersionChoice: 'latest'
-    goals: 'build'
+    #goals: 'build'
 
 - task: CmdLine@2
   inputs:
