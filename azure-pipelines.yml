@@ -45,6 +45,9 @@ steps:
     sqMavenPluginVersionChoice: 'latest'
     #goals: 'build'
 
+- task: SonarQubePublish@5
+  inputs:
+    pollingTimeoutSec: '3000'
 - task: CmdLine@2
   inputs:
     script: 'ls -lart /home/vsts/work/1/s/**/target/*.jar'
