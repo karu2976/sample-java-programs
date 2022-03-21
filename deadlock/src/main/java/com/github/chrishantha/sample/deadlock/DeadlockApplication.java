@@ -53,6 +53,12 @@ public class DeadlockApplication implements SampleApplication {
                     System.out.format("%s: Acquired lock  : %s%n", getName(), lock2);
 
                 }
+                // Code Base added to increase the Blockers Issue
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
