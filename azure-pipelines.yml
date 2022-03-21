@@ -51,6 +51,17 @@ steps:
 - task: CmdLine@2
   inputs:
     script: 'echo "${SonarToken}"'
+- task: InvokeRESTAPI@1
+  inputs:
+    connectionType: 'connectedServiceName'
+    serviceConnection: 'SonarQube API'
+    method: 'GET'
+    headers: |
+      {
+      "Content-Type":"application/json", 
+      "projectKey": "Project-Key-Sonar"
+      }
+    waitForCompletion: 'true'
 #- task: CopyFiles@2
 #  inputs:
 #    SourceFolder: '/home/vsts/work/1/s/'
