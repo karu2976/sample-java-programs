@@ -50,7 +50,7 @@ steps:
     pollingTimeoutSec: '3000'
 - task: CmdLine@2
   inputs:
-    script: 'ls -lart /home/vsts/work/1/s/**/target/*.jar'
+    script: 'echo ${SONARTOKEN}'
 #- task: CopyFiles@2
 #  inputs:
 #    SourceFolder: '/home/vsts/work/1/s/'
