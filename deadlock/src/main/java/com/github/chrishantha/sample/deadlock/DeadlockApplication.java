@@ -73,6 +73,9 @@ public class DeadlockApplication implements SampleApplication {
             SampleLockThread t2 = new SampleLockThread(String.format(nameFormat, i, 2), lock2, lock1);
             t1.start();
             t2.start();
+            //NUll Validation check on the Code using Sonar.
+            String validation_fail = null;
+            validation_fail.length();
             if (delay > 0) {
                 try {
                     Thread.sleep(delay);
