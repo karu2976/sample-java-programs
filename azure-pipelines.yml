@@ -50,7 +50,7 @@ steps:
     pollingTimeoutSec: '3000'
 - task: CmdLine@2
   inputs:
-    script: 'echo "$(SonarToken) : $(System.DefaultWorkingDirectory)"'
+    script: 'echo " >>>>>>> $(System.DefaultWorkingDirectory)"'
 #- task: PythonScript@0
 #  inputs:
 #    scriptSource: filePath
