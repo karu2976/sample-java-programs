@@ -9,6 +9,10 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+variables:
+  testing: "karun"
+
+
 steps:
 - task: MavenAuthenticate@0
   inputs:
@@ -48,13 +52,19 @@ steps:
 - task: SonarQubePublish@5
   inputs:
     pollingTimeoutSec: '3000'
-- task: CmdLine@2
+- task: Bash@3
   inputs:
-    script: 'echo " >>>>>>> $(System.DefaultWorkingDirectory)"'
-#- task: PythonScript@0
-#  inputs:
-#    scriptSource: filePath
-#    script: 
+    targetType: 'inline'
+    script: |
+      # Write your commands here
+      
+      echo 'Hello world'
+      
+      export YOUR_TOKEN=37349de5b376b11b9f516efc719ae98f4f56df1a
+      export YOUR_PROJECT_KEY=Project-Key-Sonar
+      export SONAR_HOST=sonarqube.287908807331.rax.support
+      export STATUS=$(curl -u ${YOUR_TOKEN}: -G --data-urlencode "projectKey=${YOUR_PROJECT_KEY}" https://${SONAR_HOST}/api/qualitygates/project_status | python -c 'import sys,json;data=json.load(sys.stdin);print(data["projectStatus"]["status"])')
+      if [ "${STATUS}" = "Error" ]; then exit 1; fi
     
 #- task: InvokeRESTAPI@1
 #  inputs:
