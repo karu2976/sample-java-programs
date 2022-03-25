@@ -65,7 +65,7 @@ steps:
       export SONAR_HOST=sonarqube.287908807331.rax.support
       export STATUS=$(curl -u ${YOUR_TOKEN}: -G --data-urlencode "projectKey=${YOUR_PROJECT_KEY}" https://${SONAR_HOST}/api/qualitygates/project_status | python -c 'import sys,json;data=json.load(sys.stdin);print(data["projectStatus"]["status"])')
       echo ">>>>>>>>>>>>>${STATUS}"
-      if [ "${STATUS}" = "Error" ]; then exit 1; fi
+      if [ "${STATUS}" = "ERROR" ]; then exit 1; fi
     
 #- task: InvokeRESTAPI@1
 #  inputs:
