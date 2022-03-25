@@ -55,21 +55,12 @@ public class DeadlockApplication implements SampleApplication {
                 }
                 // Code Base added to increase the Blockers Issue
                 
-                try {
+               /* try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
-                }
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                }*/
+               
                 // Code Base added to increase the Blockers Issue
             }
         }
